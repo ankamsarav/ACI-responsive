@@ -1,0 +1,370 @@
+/* -----------------------------------
+ * Slidebars
+ * Version 0..10
+ * http://plugins.adchsm.me/slidebars/
+ *
+ * Written by Adam Smith
+ * http://www.adchsm.me/
+ *
+ * Released under MIT License
+ * http://plugins.adchsm.me/slidebars/license.txt
+ *
+ * -------------------
+ * Slidebars CSS Index
+ *
+ * 001 - Box Model, Html & Body
+ * 002 - Site
+ * 003 - Slidebars
+ * 004 - Animation
+ * 005 - Helper Classes
+ *
+ * ----------------------------
+ * 001 - Box Model, Html & Body
+ */
+
+html, body, #sb-site, .sb-site-container, .sb-slidebar {
+	/* Set box model to prevent any user added margins or paddings from altering the widths or heights. */
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	overflow-x: hidden; /* Stops horizontal scrolling. */
+}
+
+html {
+	height: 100%; /* Site is as tall as device. */
+}
+
+body {
+	min-height: 100%;
+	height: auto;
+	position: relative; /* Required for static Slidebars to function properly. */
+}
+
+html.sb-scroll-lock.sb-active:not(.sb-static) {
+	overflow: hidden; /* Prevent site from scrolling when a Slidebar is open, except when static Slidebars are only available. */
+}
+
+/* ----------
+ * 002 - Site
+ */
+
+#sb-site, .sb-site-container {
+	/* You may now use class .sb-site-container instead of #sb-site and use your own id. However please make sure you don't set any of the following styles any differently on your id. */
+	width: 100%;
+	position: relative;
+	z-index: 1; /* Site sits above Slidebars */
+	background-color: #ffffff; /* Default background colour, overwrite this with your own css. I suggest moving your html or body background styling here. Making this transparent will allow the Slidebars beneath to be visible. */
+}
+
+/* ---------------
+ * 003 - Slidebars
+ */
+
+.sb-slidebar {
+	height: 100%;
+	overflow-y: auto; /* Enable vertical scrolling on Slidebars when needed. */
+	position: fixed;
+	top: 0;
+	z-index: 0; /* Slidebars sit behind sb-site. */
+	display: none; /* Initially hide the Slidebars. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+	background-color: #565656; /* Default Slidebars background colour, overwrite this with your own css. */
+	-webkit-transform: translate(0px); /* Fixes issues with translated and z-indexed elements on iOS 7. */
+}
+
+.sb-left {
+	left: 0; /* Set Slidebar to the left. */
+}
+
+.sb-right {
+	right: 0; /* Set Slidebar to the right. */
+}
+
+html.sb-static .sb-slidebar,
+.sb-slidebar.sb-static {
+	position: absolute; /* Makes Slidebars scroll naturally with the site, and unfixes them for Android Browser < 3 and iOS < 5. */
+}
+
+.sb-slidebar.sb-active {
+	display: block; /* Makes Slidebars visibile when open. Changed from visibility to display to allow -webkit-overflow-scrolling. */
+}
+
+.sb-style-overlay {
+	z-index: 9999; /* Set z-index high to ensure it overlays any other site elements. */
+}
+
+.sb-momentum-scrolling {
+	-webkit-overflow-scrolling: touch; /* Adds native momentum scrolling for iOS & Android devices. */
+}
+
+/* Slidebar widths for browsers/devices that don't support media queries. */
+	.sb-slidebar {
+		width: 30%;
+	}
+	
+	.sb-width-thin {
+		width: 15%;
+	}
+	
+	.sb-width-wide {
+		width: 45%;
+	}
+
+
+
+@media (max-width: 480px) { /* Slidebar widths on extra small screens. */
+	.sb-slidebar {
+		width: 70%;
+	}
+	
+	.sb-width-thin {
+		width: 55%;
+	}
+	
+	.sb-width-wide {
+		width: 85%;
+	}
+	
+
+	
+}
+@media (min-width : 320px) and (max-width : 480px) { 
+/* Start Family details page CSS */
+	.hero.blackHeading h1{font-size: 1.5em;margin: 0;}
+	.hero.tabMenu{margin: 0;padding: 0 1em;}
+	.hero.tabMenu ul{font-size: 0.9em;}
+	.hero.tabMenu li{margin-right: 0.5em !important;}
+	.hero.tabMenu ul li a{padding-right: 0.5em;font-size: 0.8em;}
+	.family-details .slimScrollDiv{width: auto !important;height: auto !important;display: block;clear: both;}
+	.family-details .thumbnailBox{width: 96% !important;margin: 0 2%; height: auto !important;overflow-x: scroll;overflow-y: hidden;margin-bottom: 1em;overflow-x: scroll !important;white-space: nowrap;}
+	.family-details .thumbnailBox a{display: inline-block;width: auto;height: 85px;}
+	.family-details .thumbnailBox a img{width: auto; height: 100%;}
+	.family-details.ourLetter .left, .family-details.ourLetter .right{width: 100% !important;float: none !important;display: block;}
+	.family-details.ourLetter .left figure{height: auto !important; width: 100% !important;}
+	.family-details.ourLetter .left figure a{width: 100%;display: block;text-align: center;}
+	.family-details img.centerAlign{position: static;width: auto !important;height: 240px !important;}
+	.family-details.ourLetter aside{height: auto !important;margin: 0;width: auto !important;font-size: 0.9em;}
+	/*End Family details page CSS*/
+	
+}
+
+@media (min-width: 481px) { /* Slidebar widths on small screens. */
+	.sb-slidebar {
+		width: 55%;
+	}
+	
+	.sb-width-thin {
+		width: 40%;
+	}
+	
+	.sb-width-wide {
+		width: 70%;
+	}
+
+}
+
+@media (min-width: 768px) { /* Slidebar widths on medium screens. */
+	.sb-slidebar {
+		width: 40%;
+	}
+	
+	.sb-width-thin {
+		width: 25%;
+	}
+	
+	.sb-width-wide {
+		width: 55%;
+	}
+	#wrap{margin-bottom: 0;}
+	.family-details .slimScrollDiv,.family-details .thumbnailBox, .family-details .ourLetter-aside{overflow-y:scroll !important; }
+}
+
+@media (min-width: 992px) { /* Slidebar widths on large screens. */
+	.sb-slidebar {
+		width: 30%;
+	}
+	
+	.sb-width-thin {
+		width: 15%;
+	}
+	
+	.sb-width-wide {
+		width: 45%;
+	}
+}
+
+@media (min-width: 1200px) { /* Slidebar widths on extra large screens. */
+	.sb-slidebar {
+		width: 20%;
+	}
+	
+	.sb-width-thin {
+		width: 5%;
+	}
+	
+	.sb-width-wide {
+		width: 35%;
+	}
+}
+
+/* ---------------
+ * 004 - Animation
+ */
+
+.sb-slide, #sb-site, .sb-site-container, 
+ {
+	-webkit-transition: -webkit-transform 400ms ease;
+	   -moz-transition: -moz-transform 400ms ease;
+	     -o-transition: -o-transform 400ms ease;
+	        transition: transform 400ms ease;
+	-webkit-transition-property: -webkit-transform, left, right; /* Add left/right for Android < 4.4. */
+	-webkit-backface-visibility: hidden; /* Prevents flickering. This is non essential, and you may remove it if your having problems with fixed background images in Chrome. */
+}
+
+/* --------------------
+ * 005 - Helper Classes
+ */
+ 
+.sb-hide { 
+	display: none; /* Optionally applied to control classes when Slidebars is disabled over a certain width. */
+}
+
+
+/* Saravana */
+.sb-slidebar ul{border:0px; margin:15px}
+.sb-slidebar ul li{list-style:none; border-right:0}
+.sb-slidebar ul li a{color:#eee; padding:8px; display:block; border-bottom:1px solid #444}
+
+@media (min-width : 320px) and (max-width : 768px){
+
+/* Saravana */
+	.sb-slidebar{top:56px}
+	h2{line-height:30px; font-size:24px}
+	.greyBand{display:none}
+	header nav{height:0px !important; overflow:hidden; padding:0px; border-top:0px;}
+	.container, .heroSlider {width:100%; margin:0; padding:0}
+	.heroSlider{height:auto}
+	.container section{overflow:none !important;}
+	.burger {position: absolute; padding: 3px; top: 15px; right: 10px; height:18px; width:22px; border:1px solid #565656; margin:0;  border-radius: 3px; cursor:pointer; background:#565656}
+	.burger li {height: 2px; width:22px; background-color: #eee; border-radius: 0px; margin:2px 0; display: block;}
+	.burger.open li {background-color: #d9dde1;}
+	
+	#contactInfo{display:none}
+	#logo a {height:48px; width:48px}
+	#logo .span4{margin-top:0px}
+	#logo a img {height:48px;}
+	#logo .span4 h3{margin-top:0px; font-size:22px; line-height:22px;}
+	#logo{margin-top:9px; height:50px; padding-left:15px}
+	.carousel-caption{top:0px; margin-top:0px; padding:0 10px 10px}
+	p.lead, .mbox{font-size:14px; font-weight:bold; width:100% }
+	.carousel-caption p{max-width:100%}
+	#myCarousel.carousel{margin-top:0}
+	.span10, footer, .greyBand .container, .span9 {width:100%}
+	footer .row{margin-left:0}
+	footer{height:auto}
+	#wrap{margin-bottom:0}
+	body{height:inherit}
+	.dropdown-menu{position:static; top:inherit; float:inherit; background:none; -webkit-border-radius:0;
+  -moz-border-radius:0; border:0; border-bottom:1px solid;
+  -webkit-box-shadow:inherit;
+  -moz-box-shadow:inherit; box-shadow:inherit}
+  
+	.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{background:#ccc}
+	.sb-slidebar ul ul{margin-right:0}
+	.threeCols .profile, .threeCols .last {width:86%; margin:10px auto; float:none}
+
+	.threeCols .imgWrap{margin:0 auto; width:290px}
+	.profile, .listMenu{margin:10px}
+	
+	
+	/* layout 2 */
+	section nav{display:none}
+	article.span5, section .span9{width:inherit; float:none;}
+	.span9 h1{margin-top:0px}
+	.span9 .hero{padding-left:10px}
+	aside{float:none; padding:10px}
+	article.span5{padding:10px}
+	.testimony{width:80%; margin:0 auto}
+	aside .imgWrap{margin:0 auto; padding-left:0}
+	aside p{padding:0 8px}
+	.hero.withBg{width:inherit}
+	
+	#logo .span4{width:230px; padding-left:10px; margin-left:10px}
+	#logo a img {height:32px;}
+	#logo a {height:32px; width:32px}
+	#logo .span4 h3{margin-top:0px; font-size:18px; line-height:18px;}
+	#logo{margin-top:9px; height:36px; padding-left:10px}
+	#logo .span4 h4{font-size:13px; line-height:15px; font-weight:bold; margin-top:5px}	
+	
+	
+	
+}
+@media (min-width : 480px) and (max-width:768px) and (orientation : portrait) {
+	.testimony{width:100%}
+	.testimony div[data-object]{
+		width:46%; margin:5px;float:left
+	}
+	section{overflow:inherit}
+	.carousel-caption{max-width:100%}
+	.threeCols .profile, .threeCols .last {width:40%; float:left; margin:5px}
+	.threeCols h3{font-size:18px; line-height:20px}
+	
+}
+/*ipad landscape*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape)  { 
+
+	/* Start Family details page CSS */
+	.family-details .left{width: 70% !important;}
+	.family-details .left figure{width: 80% !important;}
+	.family-details .left figure img{width: 95% !important; height: auto !important;}
+	.family-details .thumbnailBox{width: 100% !important;}
+	.family-details .slimScrollDiv img{width: 100% !important;}
+	.family-details .right{width: 30% !important;}
+	.family-details .right .slimScrollDiv{width: 94% !important;margin-left: 6%;}
+	.family-details .right .slimScrollDiv .ourLetter-aside{width: auto !important;padding: 0;margin: 0;}
+	/*End Family details page CSS*/
+
+}
+/*ipad portrait*/
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait)  { 
+
+	/* Start Family details page CSS */
+	.family-details .slimScrollDiv{width: auto !important;height: auto !important;display: block;clear: both;}
+	.family-details .thumbnailBox{width: 96% !important;margin: 0 2%; height: auto !important;overflow-x: scroll;overflow-y: hidden;margin-bottom: 1em;overflow-x: scroll !important;white-space: nowrap;}
+	.family-details .thumbnailBox a{display: inline-block;width: auto;height: 110px;}
+	.family-details .thumbnailBox a img{width: auto; height: 100%;}
+	.family-details.ourLetter .left, .family-details.ourLetter .right{width: 100% !important;float: none !important;display: block;}
+	.family-details.ourLetter .left figure{height: auto !important; width: 100% !important;}
+	.family-details.ourLetter .left figure a{width: 100%;display: block;text-align: center;}
+	.family-details img.centerAlign{position: static;width: auto !important;height: 400px !important;}
+	.family-details.ourLetter aside{height: auto !important;margin: 0;width: auto !important;font-size: 1em;}
+	
+	/*End Family details page CSS*/
+
+}
+@media (min-width : 530px) and (max-width:640px){
+	.threeCols .profile, .threeCols .last {width:60%; float:none; margin:10px auto;}
+
+	/* Start Family details page CSS */
+	.hero.blackHeading h1{font-size: 1.5em;margin: 0;}
+	.hero.tabMenu{margin: 0;padding: 0 1em;}
+	.hero.tabMenu ul{font-size: 0.9em;}
+	.hero.tabMenu li{margin-right: 0.5em !important;}
+	.hero.tabMenu ul li a{padding-right: 0.5em;font-size: 0.8em;}
+	.family-details .slimScrollDiv{width: auto !important;height: auto !important;display: block;clear: both;}
+	.family-details .thumbnailBox{width: 96% !important;margin: 0 2%; height: auto !important;overflow-x: scroll;overflow-y: hidden;margin-bottom: 1em;overflow-x: scroll !important;white-space: nowrap;}
+	.family-details .thumbnailBox a{display: inline-block;width: auto;height: 85px;}
+	.family-details .thumbnailBox a img{width: auto; height: 100%;}
+	.family-details.ourLetter .left, .family-details.ourLetter .right{width: 100% !important;float: none !important;display: block;}
+	.family-details.ourLetter .left figure{height: auto !important; width: 100% !important;}
+	.family-details.ourLetter .left figure a{width: 100%;display: block;text-align: center;}
+	.family-details img.centerAlign{position: static;width: auto !important;height: 240px !important;}
+	.family-details.ourLetter aside{height: auto !important;margin: 0;width: auto !important;font-size: 0.9em;}
+	/*End Family details page CSS*/
+}
+

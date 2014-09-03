@@ -1,0 +1,58 @@
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(0) {
+  color: #89ABD3;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(1) {
+  color: #89ABD3;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(2) {
+  color: #1553A3;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(3) {
+  color: #CADBA7;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(4) {
+  color: #8064A2;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(5) {
+  color: #FCD5B5;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(6) {
+  color: #FAC090;
+}
+
+/* line 20, ../sass/pizza.scss */
+[data-pie-id] li:nth-child(7) {
+  color: #00A287;
+}
+
+/* line 26, ../sass/pizza.scss */
+ul[data-pie-id] {
+  list-style: none;
+  padding: 10px;
+}
+
+.chart{
+  width: 500px;
+}
+.per{
+  float: left;
+  padding: 3px;
+  color: #fff;
+}
+.desc{
+  padding-left: 40px;
+  color:#000;
+}

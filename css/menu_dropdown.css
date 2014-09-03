@@ -1,0 +1,54 @@
+header.dropdown-menu{
+	 margin-top:0px;
+	 border-radius: 0;
+   box-shadow: 7px 7px 10px #cccccc;
+   border: none;
+}
+header .dropdown-menu li{
+border-right: none !important;
+padding: 0 !important;
+}
+header .dropdown-menu>li>a:hover{
+background: transparent !important;
+}
+header .sidebar-nav {
+   padding: 9px 0;
+}
+
+header .dropdown-menu .sub-menu {
+   left: 100%;
+   position: absolute;
+   top: 0;
+   visibility: hidden;
+   margin-top: -1px;
+}
+
+header .dropdown-menu li:hover .sub-menu {
+   visibility: visible;
+}
+
+header .dropdown:hover .dropdown-menu {
+   display: block;
+}
+
+header .nav-tabs .dropdown-menu, .nav-pills .dropdown-menu, header .navbar .dropdown-menu {
+   margin-top: 0;
+}
+
+header .navbar .sub-menu:before {
+   border-bottom: 7px solid transparent;
+   border-left: none;
+   border-right: 7px solid rgba(0, 0, 0, 0.2);
+   border-top: 7px solid transparent;
+   left: -7px;
+   top: 10px;
+}
+header .navbar .sub-menu:after {
+   border-top: 6px solid transparent;
+   border-left: none;
+   border-right: 6px solid #fff;
+   border-bottom: 6px solid transparent;
+   left: 10px;
+   top: 11px;
+   left: -6px;
+}
